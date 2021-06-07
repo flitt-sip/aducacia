@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/pups/",
+    "build": "vite build --base='./'",
     "buildX": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "check": "echo Checking frontend",
+    "clean": "echo Cleaning frontend"
   },
   "dependencies": {
     "axios": "^0.21.1",
