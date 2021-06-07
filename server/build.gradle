@@ -33,9 +33,6 @@ tasks.named('processResources') {
 	dependsOn tasks.named('processFrontendResources')
 }
 
-task stage(dependsOn: ['build', 'clean'])
-build.mustRunAfter clean
-
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.0'
 	implementation 'org.apache.poi:poi:3.15'
