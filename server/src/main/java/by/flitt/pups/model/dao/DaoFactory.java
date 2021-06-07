@@ -30,8 +30,9 @@ public class DaoFactory {
     public static PupDao loadXlsx(InputStream xlsxStream) throws IOException {
         Objects.requireNonNull(xlsxStream);
 
-        final Instant validSince = LocalDateTime
-                .of(2021, Month.MAY.getValue(), 4, 11, 49, 18)
+        final Instant validSince = LocalDate
+                .of(2021, Month.MAY.getValue(), 5)
+                .atStartOfDay()
                 .toInstant(ZoneOffset.UTC);
 
         Workbook workbook = new XSSFWorkbook(xlsxStream);
@@ -65,7 +66,15 @@ public class DaoFactory {
                         .setWhatIsImportant(getString(row, 13))
                         .build())
                 .peek(pup -> logger.debug("pup parsed: {}", pup))
-                .filter(pup -> pup.getTimestamp().isAfter(validSince))
+                .filter(pup -> {
+                    if (pup.getTimestamp().isAfter(validSince)) {
+                        return true;
+                    }
+                    else {
+                        logger.warn("filtered {}:{}", pup.getTimestamp(), pup.getPupName());
+                        return false;
+                    }
+                })
                 .collect(Collectors.toList());
 
         return new ListPupDao(pups);
