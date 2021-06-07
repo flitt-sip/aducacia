@@ -1,0 +1,18 @@
+pluginManagement {
+    plugins {
+        id 'java'
+        id 'org.springframework.boot' version '2.5.0'
+        id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+        id 'org.siouan.frontend-jdk8' version '5.2.0'
+    }
+    repositories {
+        maven { url 'https://repo.spring.io/milestone' }
+        maven { url 'https://repo.spring.io/snapshot' }
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'aducacia'
+
+include 'server'
+include 'frontend'

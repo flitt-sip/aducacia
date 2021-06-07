@@ -1,0 +1,17 @@
+server:
+  port: 8081
+  address: 127.0.0.1
+  servlet:
+    context-path: /pups
+
+spring:
+  application:
+    name: pups
+
+logging:
+  file: ${spring.application.name}.log
+  path: .logs
+  level:
+    by.flitt: DEBUG
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    org.springframework.web: DEBUG
