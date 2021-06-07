@@ -25,11 +25,12 @@
   </div>
 
   <template v-if="pup">
-    <div class="bg-green-100 flex justify-center text-gray-400 font-semibold desktop:w-2/3">
-      <div class="mr-5">
-        Интересует:
+    <div class="bg-green-100 text-gray-400 desktop:w-2/3">
+      <div class="flex justify-center font-semibold">
+        <div class="mr-5"> Интересует:</div>
+        <div>{{ pup.teacherWanted }}</div>
       </div>
-      <div>{{ pup.teacherWanted }}</div>
+      <div class="flex justify-center">{{ pup.preferredPlace }}</div>
     </div>
 
     <figure class="desktop:w-2/3 text-justify ">
@@ -57,8 +58,9 @@
         {{ pup.whatIsImportant }}
       </blockquote>
       <figcaption
-          class="py-4 font-medium desktop:w-1/4 bg-gradient-to-b from-green-400 to-green-100 text-gray-600 rounded-xl p-8">
+          class="py-4 font-medium desktop:w-1/3 bg-gradient-to-b from-green-400 to-green-100 text-gray-600 rounded-xl p-8">
         <div>Контакты</div>
+        <div>{{ pup.parentName }}:</div>
         <div><a href="tel:{{pup.phoneNumber}}">{{ pup.phoneNumber }}</a></div>
       </figcaption>
     </figure>
