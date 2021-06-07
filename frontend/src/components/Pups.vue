@@ -57,7 +57,7 @@
         {{ pup.whatIsImportant }}
       </blockquote>
       <figcaption
-          class="py-4 font-medium w-1/4 bg-gradient-to-b from-green-400 to-green-100 text-gray-600 rounded-xl p-8">
+          class="py-4 font-medium desktop:w-1/4 bg-gradient-to-b from-green-400 to-green-100 text-gray-600 rounded-xl p-8">
         <div>Контакты</div>
         <div><a href="tel:{{pup.phoneNumber}}">{{ pup.phoneNumber }}</a></div>
       </figcaption>
