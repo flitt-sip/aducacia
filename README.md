@@ -2,10 +2,11 @@ Spring boot (server) + vuejs (frontend) application example.
 
 setup:
 1. clone project:
-   `git clone https://github.com/flitt-sip/aducacia.git`
+   > git clone https://github.com/flitt-sip/aducacia.git
+   
 2. setup heroku:
-   `cd aducacia`
-   `heroku apps:create aducacia`
+   > cd aducacia
+   > heroku apps:create aducacia
    
 toolchain steps:
 1. commit changes:
