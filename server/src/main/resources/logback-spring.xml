@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-  <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
-    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-      <pattern>%date{HH:mm:ss.SSS} [%highlight(%-5level)] :: [%blue(%thread)] %yellow(\(%c{0}\)) :: %msg%n%ex </pattern>
-      <charset>UTF-8</charset>
-    </encoder>
-  </appender>
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+<!--            <pattern>%date{HH:mm:ss.SSS} [%highlight(%-5level)] :: [%blue(%thread)] %yellow(\(%c{0}\)) :: %msg%n%ex-->
+<!--            </pattern>-->
+<!--            <charset>UTF-8</charset>-->
+        </encoder>
+    </appender>
 
-  <appender name="DailyRolling" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>${LOG_PATH}/${LOG_FILE}</file>
+    <appender name="DailyRolling" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${LOG_FILE}</file>
 
-    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>${LOG_PATH}/${LOG_FILE}.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
-      <MaxHistory>30</MaxHistory>
-    </rollingPolicy>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${LOG_FILE}.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
 
-    <encoder>
-      <pattern>%d{dd.MM.yyyy HH:mm:ss} [%-5level] :: %thread \(%c{0}\) :: %msg%n%ex</pattern>
-    </encoder>
-  </appender>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+<!--            <pattern>%d{dd.MM.yyyy HH:mm:ss} [%-5level] :: %thread \(%c{0}\) :: %msg%n%ex</pattern>-->
+        </encoder>
+    </appender>
 
-  <root level="INFO">
-    <appender-ref ref="DailyRolling"/>
-    <appender-ref ref="Console"/>
-  </root>
+    <root level="INFO">
+        <appender-ref ref="DailyRolling"/>
+        <appender-ref ref="Console"/>
+    </root>
 </configuration>

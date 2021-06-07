@@ -9,8 +9,9 @@ spring:
     name: pups
 
 logging:
-  file: ${spring.application.name}.log
-  path: .logs
+  file:
+    path: .logs
+    name: ${spring.application.name}.log
   level:
     by.flitt: DEBUG
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
